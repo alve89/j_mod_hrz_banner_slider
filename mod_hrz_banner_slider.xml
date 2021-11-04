@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.10"
+	client="site"
+	method="upgrade">
+  <name>mod_hrz_banner_slider</name>
+  		<creationDate>03 November 2021</creationDate>
+        <author>Stefan Herzog</author>
+        <copyright>Copyright (C)2018 devel.stefan-herzog.com</copyright>
+        <license>GNU General Public License version 2 or later</license>
+        <authorEmail>joomla@devel.stefan-herzog.com</authorEmail>
+        <authorUrl>https://devel.stefan-herzog.com</authorUrl>
+        <version>1.0.2</version>
+  <description>This module provides a slideshow for Joomlas default banners component</description>
+  <files>
+    <filename>mod_hrz_banner_slider.xml</filename>
+    <filename module="mod_hrz_banner_slider">mod_hrz_banner_slider.php</filename>
+    <filename>index.html</filename>
+    <filename>helper.php</filename>
+		<folder>media</folder>
+    <folder>tmpl</folder>
+  </files>
+
+	<scriptfile>script.php</scriptfile>
+
+	<media folder="media" destination="mod_hrz_banner_slider">
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+
+  <help key="JHELP_EXTENSIONS_MODULE_MANAGER_BANNERS" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic"
+				addfieldpath="/administrator/components/com_banners/models/fields">
+				<field
+					name="target"
+					type="list"
+					default="1"
+					label="MOD_BANNERS_FIELD_TARGET_LABEL"
+					description="MOD_BANNERS_FIELD_TARGET_DESC">
+					<option
+						value="0">JBROWSERTARGET_PARENT</option>
+					<option
+						value="1">JBROWSERTARGET_NEW</option>
+				</field>
+
+				<field
+					name="count"
+					type="number"
+					min="1"
+					max="20"
+					default="5"
+					label="MOD_BANNERS_FIELD_COUNT_LABEL"
+					description="MOD_BANNERS_FIELD_COUNT_DESC" />
+
+				<field
+					name="catid"
+					type="category"
+					extension="com_banners"
+					label="JCATEGORY"
+					multiple="true" size="5"
+					default=""
+					description="MOD_BANNERS_FIELD_CATEGORY_DESC" >
+					<option value="">JOPTION_ALL_CATEGORIES</option>
+				</field>
+
+				<field
+					name="loadjs"
+					type="radio"
+					default="0"
+					label="COM_MODULES_FIELD_LOADJS_LABEL"
+					description="COM_MODULES_FIELD_LOADJS_DESC"
+					class="btn-group btn-group-yesno">
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+					</field>
+
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+
+			</fieldset>
+		</fields>
+	</config>
+
+	<updateservers>
+			<server type="extension" priority="1" name="MOD_HRZ_BANNER_SLIDER">https://raw.githubusercontent.com/alve89/j_mod_hrz_banner_slider/master/updates.xml</server>
+	</updateservers>
+
+</extension>

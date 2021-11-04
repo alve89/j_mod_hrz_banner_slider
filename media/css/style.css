@@ -1,0 +1,14 @@
+.tvo-slider{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.tvo-slide {
+  margin-right: 15px;
+  margin-left: auto;
+}
+
+.sliderImage img {
+  width: auto;
+  max-height: 100px;
+}
