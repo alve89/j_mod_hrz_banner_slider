@@ -11,9 +11,8 @@ $document->addStyleSheet("https://kenwheeler.github.io/slick/slick/slick.css");
 
 <div class="tvo-slider ">
 
-  <?php
+<?php
 
-modHrzBannerSlider::varDump($params);
 
 $target = '_blank';
 $class  = '';
@@ -31,20 +30,36 @@ switch($params->get('target')) {
     $target = '_blank';
 }
 
+
+
+$app = JFactory::getApplication();
+
+
+  // retrieve all the response as an html string
+  $html = $app->getBody();
+  // replace the closing body tag with your scripts appending to the closing body tag
+
+?>
+
+<?php
+
   foreach($banners as $banner) {
   	?>
     <div class="tvo-slide">
       <div class="sliderImage">
         <center>
           <a href="<?=JRoute::_('index.php?option=com_banners&task=click&id='. $banner->id);?>" class="<?=$class;?>" target="<?=$target;?>">
-            <img src="<?=DS.$banner->params->get('imageurl');?>" width="<?=$width;?>%"/>
+            <img src="<?=DS.$banner->params->get('imageurl');?>" width="100%"/>
           </a>
         </center>
       </div>
     </div>
   	<?php
   }
-
-   ?>
+?>
 
 </div>
+
+<!-- These scripts need to be loaded after the slides! -->
+<script type="text/javascript" src="<?=$params->get('slickJS');?>"></script>
+<script type="text/javascript"><?=$params->get('sliderJS');?></script>
