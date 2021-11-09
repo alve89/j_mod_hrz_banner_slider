@@ -5,13 +5,13 @@
 	client="site"
 	method="upgrade">
   <name>MOD_HRZ_BANNER_SLIDER</name>
-  		<creationDate>03 November 2021</creationDate>
-        <author>Stefan Herzog</author>
-        <copyright>Copyright (C)2018 devel.stefan-herzog.com</copyright>
-        <license>GNU General Public License version 2 or later</license>
-        <authorEmail>joomla@devel.stefan-herzog.com</authorEmail>
-        <authorUrl>https://devel.stefan-herzog.com</authorUrl>
-        <version>1.0.3</version>
+	<creationDate>03 November 2021</creationDate>
+	<author>Stefan Herzog</author>
+	<copyright>Copyright (C)2018 devel.stefan-herzog.com</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>joomla@devel.stefan-herzog.com</authorEmail>
+	<authorUrl>https://github.com/alve89</authorUrl>
+	<version>1.0.5</version>
   <description>MOD_HRZ_BANNER_SLIDER_DESC</description>
   <files>
     <filename>mod_hrz_banner_slider.xml</filename>
@@ -130,9 +130,11 @@ $jq('.tvo-slider').not('.slick-initialized').slick({
 		</fields>
 	</config>
 
-	<languages folder="language/de-DE">
-		<language tag="de-DE">de-DE.mod_hrz_banner_slider.ini</language>
-		<language tag="de-DE">de-DE.mod_hrz_banner_slider.sys.ini</language>
+	<languages>
+		<language tag="de-DE">language/de-DE/de-DE.mod_hrz_banner_slider.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.mod_hrz_banner_slider.sys.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_hrz_banner_slider.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_hrz_banner_slider.sys.ini</language>
 	</languages>
 
 	<updateservers>

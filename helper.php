@@ -1,12 +1,15 @@
 <?php
+/**
+ * @version 	1.0.4
+ * @package 	mod_hrz_banner_slider
+ * @copyright 	(c) 2021 Stefan Herzog
+ * @license		GNU/GPL, http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-class modHrzBannerSlider
-{
-
-
-	public static function &getList(&$params)
-	{
+class modHrzBannerSlider {
+	public static function &getList(&$params) {
 
 		JModelLegacy::addIncludePath(JPATH_ROOT.'/components/com_banners/models', 'BannersModel');
 		$document	= JFactory::getDocument();
@@ -28,15 +31,6 @@ class modHrzBannerSlider
 
 		return $banners;
 	}
-
-	public static function varDump($var, $color='black')
-	{
-		echo '<pre style="color: '.$color.'">';
-		var_dump($var);
-		echo '</pre>';
-	}
-
-
 }
 
 

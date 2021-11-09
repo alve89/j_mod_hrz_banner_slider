@@ -1,4 +1,11 @@
 <?php
+/**
+ * @version 	1.0.4
+ * @package 	mod_hrz_banner_slider
+ * @copyright 	(c) 2021 Stefan Herzog
+ * @license		GNU/GPL, http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
 defined('_JEXEC') or die( 'Restricted access' );
 
 if($params->loadjs) JHtml::_('jquery.framework');
