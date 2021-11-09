@@ -11,7 +11,7 @@
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>joomla@devel.stefan-herzog.com</authorEmail>
 	<authorUrl>https://github.com/alve89</authorUrl>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
   <description>MOD_HRZ_BANNER_SLIDER_DESC</description>
   <files>
     <filename>mod_hrz_banner_slider.xml</filename>
