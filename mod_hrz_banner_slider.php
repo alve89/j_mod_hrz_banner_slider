@@ -18,6 +18,4 @@ $banners = &modHrzBannerSlider::getList($params);
 
 require( JModuleHelper::getLayoutPath( 'mod_hrz_banner_slider' ) );
 
-
-
 ?>

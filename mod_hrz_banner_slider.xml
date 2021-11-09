@@ -18,15 +18,10 @@
     <filename module="mod_hrz_banner_slider">mod_hrz_banner_slider.php</filename>
     <filename>index.html</filename>
     <filename>helper.php</filename>
-		<folder>media</folder>
     <folder>tmpl</folder>
   </files>
 
 	<scriptfile>script.php</scriptfile>
-
-	<media folder="media" destination="mod_hrz_banner_slider">
-		<folder>css</folder>
-	</media>
 
   <help key="JHELP_EXTENSIONS_MODULE_MANAGER_BANNERS" />
 	<config>
@@ -81,19 +76,16 @@
 				<field
 					name="sliderJS"
 					type="textarea"
-					default="
-var $jq = jQuery.noConflict();
-$jq('.tvo-slider').not('.slick-initialized').slick({
-  dots: false,
-  autoplay: true,
-  autoplaySpeed: 1000,
-  infinite: true,
-  speed: 2000,
-  slide: 'div',
-  cssEase: 'ease-in-out',
-  slidesToShow: 2,
-  arrows: false,
-});"
+					default="dots: false,
+									 autoplay: true,
+									 autoplaySpeed: 1000,
+									 infinite: true,
+									 speed: 2000,
+									 slide: 'div',
+									 cssEase: 'ease-in-out',
+									 slidesToShow: 2,
+									 arrows: false,
+									 adaptiveHeight: true, "
 					label="MOD_HRZ_BANNER_SLIDER_FIELD_SLIDERJS_LABEL"
 					description="MOD_HRZ_BANNER_SLIDER_FIELD_SLIDERJS_DESC"
 					rows="10"
@@ -109,6 +101,30 @@ $jq('.tvo-slider').not('.slick-initialized').slick({
 					default="https://kenwheeler.github.io/slick/slick/slick.js"
 					size="100"
 					required="true" />
+
+				<field
+					name="customCSS"
+					type="textarea"
+					filter="raw"
+					rows="10"
+					cols="5"
+					default=".hrz-slider{
+					    width: 90%;
+					    margin: 0 auto;
+					}
+
+					.hrz-slide {
+					  margin-right: 15px;
+					  margin-left: auto;
+					}
+
+					.sliderImage img {
+					  width: auto;
+					}
+"
+					label="MOD_HRZ_BANNER_SLIDER_FIELD_CUSTOMCSS_LABEL"
+					description="MOD_HRZ_BANNER_SLIDER_FIELD_CUSTOMCSS_DESC" />
+
 
 			</fieldset>
 			<fieldset

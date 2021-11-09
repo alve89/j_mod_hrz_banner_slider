@@ -8,15 +8,17 @@
 
 defined('_JEXEC') or die( 'Restricted access' );
 
-if($params->loadjs) JHtml::_('jquery.framework');
+if(boolval($params->get('loadjs'))) {
+	JHtml::_('jquery.framework');
+}
 
 $document = JFactory::getDocument();
-$document->addStyleSheet(JURI::base()."modules/mod_hrz_banner_slider/media/css/style.css");
 $document->addStyleSheet("https://kenwheeler.github.io/slick/slick/slick.css");
+$document->addStyleDeclaration($params->get('customCSS'));
 
 ?>
 
-<div class="tvo-slider ">
+<div class="hrz-slider ">
 
 <?php
 
@@ -36,37 +38,34 @@ switch($params->get('target')) {
   default:
     $target = '_blank';
 }
-
-
-
-$app = JFactory::getApplication();
-
-
-  // retrieve all the response as an html string
-  $html = $app->getBody();
-  // replace the closing body tag with your scripts appending to the closing body tag
-
-?>
-
-<?php
-
-  foreach($banners as $banner) {
-  	?>
-    <div class="tvo-slide">
-      <div class="sliderImage">
-        <center>
-          <a href="<?=JRoute::_('index.php?option=com_banners&task=click&id='. $banner->id);?>" class="<?=$class;?>" target="<?=$target;?>">
-            <img src="<?=DS.$banner->params->get('imageurl');?>" width="100%"/>
-          </a>
-        </center>
-      </div>
+foreach($banners as $banner) {
+	?>
+  <div class="hrz-slide">
+    <div class="sliderImage">
+      <center>
+        <a href="<?=JRoute::_('index.php?option=com_banners&task=click&id='. $banner->id);?>" class="<?=$class;?>" target="<?=$target;?>">
+          <?php
+						if(!is_null($banner->custombannercode) && !empty($banner->custombannercode)) {
+							echo $banner->custombannercode;
+						}
+						else {
+							?><img src="<?=JUri::root().$banner->params->get('imageurl');?>" /><?php
+						}
+						?>
+        </a>
+      </center>
     </div>
-  	<?php
-  }
+  </div>
+	<?php
+}
 ?>
-
 </div>
 
 <!-- These scripts need to be loaded after the slides! -->
 <script type="text/javascript" src="<?=$params->get('slickJS');?>"></script>
-<script type="text/javascript"><?=$params->get('sliderJS');?></script>
+<script type="text/javascript">
+	var $jq = jQuery.noConflict();
+	$jq('.hrz-slider').not('.slick-initialized').slick({
+		<?=$params->get('sliderJS');?>
+	});
+	</script>
